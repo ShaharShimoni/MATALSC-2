@@ -6,7 +6,13 @@ char option[2]={'!','!'};
 int status=0;
 
 printf("Hey there! welcome to shaharivka's bank. Here are your following options:\n");
-printf(".O,I,P,E,C?....\n");
+printf("O-opens a new bank account\n");
+printf("B-Balance inquiry\n");
+printf("D-deposite money in to an account\n");
+printf("C-close an account\n");
+printf("I-adding interest\n");
+printf("P-prints all open accounts\n");
+printf("E-closing all acoount and shut down the program\n");
 while(status==0){
    printf("enter your request:");
    scanf(" %s",option); 
