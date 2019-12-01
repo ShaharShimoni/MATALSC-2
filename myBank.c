@@ -1,11 +1,16 @@
 #include <stdio.h>
 #include "myBank.h"
-
+#define L 2
+#define S 51
 double money=0;
-double a[2][51]={{0}};
+double a[L][S]={0};
  void o(){
-    printf("enter your deposity amount:");
-        scanf("%lf",&money);
+    printf("enter your deposity amount:\n");
+        if(scanf("%lf",&money)!=1){
+            printf("error-OPSS this is not an account number\n");
+
+        } 
+        else{
         if(money<0){
          printf("enter again:");
          scanf("%lf",&money);
@@ -30,11 +35,8 @@ double a[2][51]={{0}};
                 printf("bank is full, go to leumy bank\n");
                 return;
             }
-        
-            
-            
-
-
+        }
+    
 
         return;
 }
@@ -42,7 +44,11 @@ double a[2][51]={{0}};
  void b(){
      int index=0;
     printf("enter your acount\n");
-        scanf("%d",&index);
+        if(scanf("%d",&index)!=1){
+            printf("error-Opps wrong acount number");
+
+        } 
+        else{
         while((index<901)||(index>950)){
             printf("you entered a wrong acount number please enter again\n");
             scanf("%d",&index);
@@ -53,6 +59,7 @@ double a[2][51]={{0}};
         else
         printf("this account is closed\n");
         return;
+        }
 
        
 }
@@ -61,7 +68,11 @@ double a[2][51]={{0}};
      int index=0;
 
         printf("enter your acount and the amount of the deposit\n");
-        scanf(" %d  %lf",&index,&money);
+        if(scanf(" %d  %lf",&index,&money)!=2){
+
+         printf("error-oops wrong input\n");
+        }
+        else{
         while((index<901)||(index>950)){
             printf("you entered a wrong acount number please enter again\n");
             scanf("%d",&index);
@@ -74,6 +85,7 @@ double a[2][51]={{0}};
 
         else
         printf("this account is closed\n");
+        }
 
         return;
 }
@@ -82,7 +94,10 @@ double a[2][51]={{0}};
      int index=0;
 
         printf("enter your acount and the amount of withdrawal:\n");
-        scanf("%d  %lf",&index,&money);
+        if(scanf("%d  %lf",&index,&money)!=2){
+            printf("error-oops wrong input\n");
+        }
+        else{
         while((index<901)||(index>950)){
             printf("you entered a wrong acount number please enter again:");
             scanf("%d %lf",&index,&money);
@@ -97,6 +112,7 @@ double a[2][51]={{0}};
                 a[0][index]=save;
                 printf("your new balance is %0.2lf:\n", save);
             }
+        
             
                 
         }    
@@ -104,6 +120,7 @@ double a[2][51]={{0}};
         if(a[1][index]==0)
         printf("this account is closed\n");
         return;
+        }
 
      
         
@@ -111,7 +128,10 @@ double a[2][51]={{0}};
  void c(){
      int index=0;
     printf("enter your acount number:\n");
-        scanf(" %d",&index);
+        if(scanf(" %d",&index)!=1){
+            printf("error-opps wrong acount number\n");
+        }
+        else{
         while((index<901)||(index>950)){
             printf("you entered a wrong acount number please enter again:");
             scanf("%d",&index);
@@ -124,19 +144,26 @@ double a[2][51]={{0}};
         }
         else
         printf("this account is already closed\n");
+        }
 
         return;
 
 }
  void i(){
     printf("enter interest:");
-        scanf("%lf",&money);
+        if(scanf("%lf",&money)!=1){
+            printf("error-opps wrong input\n");
+        }
+        else{
+
+        
          for(int i=1;i<51;i++){
             if(a[1][i]==1)
                 a[0][i]=a[0][i]+(a[0][i]*(money/100.0));
 
          }
          printf("The balance is up by the percent that you entered\n");
+        }
 
         return;
 }
